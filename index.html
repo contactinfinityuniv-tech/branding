@@ -83,16 +83,6 @@
         .visual-content.active {
             display: block;
         }
-        .logo-part {
-            transition: all 0.3s ease-in-out;
-        }
-        .logo-container:hover .logo-part {
-            opacity: 0.5;
-        }
-        .logo-container:hover .logo-part:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -102,10 +92,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                        <div class="w-8 h-8 relative">
-                            <div class="absolute top-0 right-0 w-full h-full bg-[#00234C] clip-path-shield"></div>
-                            <div class="absolute bottom-2 right-2 w-4 h-4 bg-[#D4AF37] rounded-full"></div>
-                        </div>
+                       <img src="https://placehold.co/100x100/00234C/FFFFFF?text=EA" alt="شعار أكاديمية النخبة" class="rounded-full">
                     </div>
                     <h1 class="text-xl md:text-2xl font-bold text-white">أكاديمية النخبة الدولية</h1>
                 </div>
@@ -207,23 +194,18 @@
 
                 <div id="logo" class="visual-content active">
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="text-center logo-container">
-                            <div class="w-48 h-48 mx-auto relative mb-4">
-                                <div class="logo-part absolute w-full h-full bg-[#00234C] clip-path-shield" data-text="الدرع: يمثل الحماية، المصداقية، وسلطة شهاداتنا المعتمدة."></div>
-                                <div class="logo-part absolute w-full h-1/2 bottom-0 bg-[#00234C] clip-path-path" data-text="المسار: يرمز إلى رحلة الطالب في النمو والتطور المهني."></div>
-                                <div class="logo-part absolute w-12 h-12 bg-[#D4AF37] rounded-full bottom-6 right-1/2 translate-x-1/2" data-text="النقطة: تمثل الطالب الفرد - 'شرارة' الإمكانات التي نرعاها."></div>
-                            </div>
-                            <p id="logo-tooltip" class="text-gray-600 h-12">مرر الفأرة فوق أجزاء الشعار لاكتشاف رمزيتها.</p>
+                        <div class="text-center">
+                             <img src="https://placehold.co/192x192/00234C/FFFFFF?text=Logo" alt="شعار أكاديمية النخبة الدولية" class="rounded-lg shadow-md mx-auto">
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-[#00234C] mb-4">رمزية الشعار</h3>
-                            <p class="text-gray-700">شعارنا هو رمز تجريدي يدمج ببراعة بين الدرع، المسار، ونقطة حرف النون العربي. إنه يروي قصة الحماية، النمو، والإمكانات الفردية. هذا التصميم العصري والراقي يميزنا عن المنافسين التقليديين ويضعنا في مصاف العلامات التجارية المبتكرة.</p>
+                            <p class="text-gray-700">هنا يتم وضع شرح لرمزية الشعار وأجزائه المختلفة. التصميم العصري والراقي يميزنا عن المنافسين التقليديين ويضعنا في مصاف العلامات التجارية المبتكرة.</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="colors" class="visual-content">
-                     <div class="grid md:grid-cols-2 gap-8 items-center">
+                     <div class="grid md:grid-cols-2 gap-8 items-center hidden">
                         <div class="space-y-4">
                             <h3 class="text-2xl font-bold text-[#00234C] mb-4">لوحة الألوان</h3>
                             <p class="text-gray-700">تم تصميم لوحة ألواننا لإحداث تأثير نفسي محدد: بيئة تعليمية هادئة ومركزة، مع لمسة من الفخامة والديناميكية لتوجيه المستخدم.</p>
@@ -250,6 +232,7 @@
                             <div class="chart-container"><canvas id="color-ratio-chart"></canvas></div>
                         </div>
                     </div>
+                     <p class="text-center text-gray-500">تم إخفاء قسم الألوان مؤقتاً بناءً على طلبك.</p>
                 </div>
 
                 <div id="typography" class="visual-content">
@@ -297,7 +280,7 @@
                     <div class="text-center">
                         <h4 class="text-xl font-bold text-[#00234C] mb-2">الصورة مع تفاصيل</h4>
                         <p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat).</p>
-                        <img src="3-26a8fe84.jpg" alt="نموذج بصري لصورة مع تفاصيل" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https.placehold.co/600x800/FFFFFF/111111?text=Image+Not+Found';">
+                        <img src="3-26a8fe84.jpg" alt="نموذج بصري لصورة مع تفاصيل" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/111111?text=Image+Not+Found';">
                     </div>
 
                     <div class="text-center">
@@ -373,35 +356,26 @@
                 });
             });
 
-            const logoParts = document.querySelectorAll('.logo-part');
-            const logoTooltip = document.getElementById('logo-tooltip');
-            logoParts.forEach(part => {
-                part.addEventListener('mouseenter', () => {
-                    logoTooltip.textContent = part.dataset.text;
-                });
-                part.addEventListener('mouseleave', () => {
-                    logoTooltip.textContent = "مرر الفأرة فوق أجزاء الشعار لاكتشاف رمزيتها.";
-                });
-            });
-
             const colorSwatches = document.querySelectorAll('.color-swatch');
             const colorDetails = document.getElementById('color-details');
-            colorSwatches.forEach(swatch => {
-                swatch.addEventListener('click', () => {
-                    const name = swatch.dataset.name;
-                    const hex = swatch.dataset.hex;
-                    const rgb = swatch.dataset.rgb;
-                    const cmyk = swatch.dataset.cmyk;
-                    const desc = swatch.dataset.desc;
-                    colorDetails.innerHTML = `
-                        <h4 class="font-bold text-lg" style="color:${hex};">${name}</h4>
-                        <p class="text-sm text-gray-700 mt-1">${desc}</p>
-                        <div class="text-xs mt-2 text-gray-500">
-                            <strong>HEX:</strong> ${hex} | <strong>RGB:</strong> ${rgb} | <strong>CMYK:</strong> ${cmyk}
-                        </div>
-                    `;
+            if(colorSwatches && colorDetails){
+                colorSwatches.forEach(swatch => {
+                    swatch.addEventListener('click', () => {
+                        const name = swatch.dataset.name;
+                        const hex = swatch.dataset.hex;
+                        const rgb = swatch.dataset.rgb;
+                        const cmyk = swatch.dataset.cmyk;
+                        const desc = swatch.dataset.desc;
+                        colorDetails.innerHTML = `
+                            <h4 class="font-bold text-lg" style="color:${hex};">${name}</h4>
+                            <p class="text-sm text-gray-700 mt-1">${desc}</p>
+                            <div class="text-xs mt-2 text-gray-500">
+                                <strong>HEX:</strong> ${hex} | <strong>RGB:</strong> ${rgb} | <strong>CMYK:</strong> ${cmyk}
+                            </div>
+                        `;
+                    });
                 });
-            });
+            }
 
             const fontSelector = document.getElementById('font-selector');
             const fontPreview = document.getElementById('font-preview');
@@ -418,55 +392,53 @@
                 fontPreview.style.lineHeight = style.lineHeight;
             });
 
-            const ctx = document.getElementById('color-ratio-chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['محايد (رمادي/أبيض)', 'أزرق نخبوي', 'لمسات (أخضر/ذهبي)'],
-                    datasets: [{
-                        data: [60, 30, 10],
-                        backgroundColor: ['#F0F2F5', '#00234C', '#00B2A9'],
-                        borderColor: '#FFFFFF',
-                        borderWidth: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '70%',
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#00234C',
-                                font: {
-                                    family: "'Tajawal', sans-serif"
+            const colorChartCanvas = document.getElementById('color-ratio-chart');
+            if(colorChartCanvas){
+                const ctx = colorChartCanvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['محايد (رمادي/أبيض)', 'أزرق نخبوي', 'لمسات (أخضر/ذهبي)'],
+                        datasets: [{
+                            data: [60, 30, 10],
+                            backgroundColor: ['#F0F2F5', '#00234C', '#00B2A9'],
+                            borderColor: '#FFFFFF',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#00234C',
+                                    font: {
+                                        family: "'Tajawal', sans-serif"
+                                    }
                                 }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) {
-                                        label += ': ';
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + '%';
+                                        }
+                                        return label;
                                     }
-                                    if (context.parsed !== null) {
-                                        label += context.parsed + '%';
-                                    }
-                                    return label;
                                 }
                             }
                         }
                     }
-                }
-            });
-            
-            const shieldClipPath = 'polygon(50% 0%, 100% 10%, 100% 70%, 50% 100%, 0% 70%, 0% 10%)';
-            const pathClipPath = 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)';
-            document.querySelector('.clip-path-shield').style.clipPath = shieldClipPath;
-            document.querySelector('.clip-path-path').style.clipPath = pathClipPath;
+                });
+            }
         });
     </script>
 </body>
-</html>
+</html>            
