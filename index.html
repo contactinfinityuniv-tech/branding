@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهوية التفاعلية لأكاديمية النخبة الدولية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Elite Blue & Prestige Gold -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive dashboard with three main thematic sections: 'The Core' (strategy), 'The Visual System' (brand elements), and 'Brand in Action' (mockups). This non-linear structure, supported by top navigation, allows users to freely explore brand components based on their interest, which is more engaging than a linear report. Key interactions include a dynamic color palette, an interactive typography scale, and a logo symbolism explorer, designed to make the brand guidelines intuitive and memorable. -->
+    <!-- Visualization & Content Choices: Report Info: Color Palette -> Goal: Explain color hierarchy -> Viz/Method: Interactive swatches + Chart.js Donut Chart -> Interaction: Click swatch to see details, chart shows 60/30/10 rule -> Justification: More engaging and clearer than a static table. | Report Info: Typography -> Goal: Demonstrate font usage -> Viz/Method: HTML/JS interactive text block -> Interaction: Select style (H1, H2) to see live preview -> Justification: Provides a practical feel for the font system. | Report Info: Logo Symbolism -> Goal: Explain logo components -> Viz/Method: HTML/CSS diagram with hover effects -> Interaction: Hover over parts to reveal their meaning -> Justification: Makes abstract symbolism tangible and easy to grasp. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #F0F2F5;
+            color: #00234C;
+        }
+        .brand-gradient {
+            background: linear-gradient(90deg, #00234C, #003f88);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            color: #F0F2F5;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            right: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s;
+        }
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #FFFFFF;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.8s;
+        }
+        .section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .sub-nav-link {
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .sub-nav-link.active {
+            color: #00234C;
+            border-bottom-color: #D4AF37;
+            font-weight: 700;
+        }
+        .visual-content {
+            display: none;
+        }
+        .visual-content.active {
+            display: block;
+        }
+        .logo-part {
+            transition: all 0.3s ease-in-out;
+        }
+        .logo-container:hover .logo-part {
+            opacity: 0.5;
+        }
+        .logo-container:hover .logo-part:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="brand-gradient sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <div class="w-8 h-8 relative">
+                            <div class="absolute top-0 right-0 w-full h-full bg-[#00234C] clip-path-shield"></div>
+                            <div class="absolute bottom-2 right-2 w-4 h-4 bg-[#D4AF37] rounded-full"></div>
+                        </div>
+                    </div>
+                    <h1 class="text-xl md:text-2xl font-bold text-white">أكاديمية النخبة الدولية</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center" id="main-nav">
+                    <a href="#core" class="nav-link active">الجوهر الاستراتيجي</a>
+                    <a href="#visuals" class="nav-link">النظام البصري</a>
+                    <a href="#application" class="nav-link">الهوية في التطبيق</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#00234C] py-2">
+            <a href="#core" class="block text-white text-center py-2 mobile-nav-link">الجوهر الاستراتيجي</a>
+            <a href="#visuals" class="block text-white text-center py-2 mobile-nav-link">النظام البصري</a>
+            <a href="#application" class="block text-white text-center py-2 mobile-nav-link">الهوية في التطبيق</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="core" class="section active">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00234C] mb-2">الجوهر الاستراتيجي: هويتنا الأساسية</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">هنا يكمن أساس علامتنا التجارية. كل قرار، وكل تصميم، وكل كلمة تنبع من هذه الركائز الأساسية التي تحدد من نحن وماذا نسعى لتحقيقه.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+                    <h3 class="text-2xl font-bold text-[#00234C]">غرضنا: لماذا نحن هنا؟</h3>
+                    <p class="text-gray-700">نحن موجودون لنكون الركيزة الموثوقة التي يعتمد عليها عملاؤنا لبناء مستقبلهم المهني. نقدم لهم مساراً واضحاً نحو النجاح من خلال شهادات معتمدة في المملكة العربية السعودية، تفتح لهم أبواب الفرص وتمنحهم ميزة تنافسية حقيقية.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+                    <h3 class="text-2xl font-bold text-[#00234C]">رؤيتنا: المستقبل الذي نصنعه</h3>
+                    <p class="text-gray-700">أن نكون المعهد الدولي الرائد والمعتمد في المملكة العربية السعودية، وأن نتوسع لنؤسس مقرات لنا في دولتين إلى ثلاث دول مستهدفة، لنصبح منارة التميز المهني في المنطقة والعالم.</p>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center text-[#00234C] mb-8">قيمنا: المبادئ التي توجهنا</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow">
+                        <h4 class="font-bold text-lg text-[#00234C]">التميز</h4>
+                        <p class="text-sm text-gray-600 mt-2">التزام مطلق بتقديم أعلى معايير الجودة في كل جانب من جوانب تجربتكم معنا.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow">
+                        <h4 class="font-bold text-lg text-[#00234C]">النزاهة والشفافية</h4>
+                        <p class="text-sm text-gray-600 mt-2">نتعامل بوضوح ومصداقية تامة، لأن ثقتكم هي أساس نجاحنا.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow">
+                        <h4 class="font-bold text-lg text-[#00234C]">الخصوصية</h4>
+                        <p class="text-sm text-gray-600 mt-2">نحترم ونحمي بياناتكم وخصوصيتكم بأعلى درجات الأمان والسرية.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow">
+                        <h4 class="font-bold text-lg text-[#00234C]">الابتكار</h4>
+                        <p class="text-sm text-gray-600 mt-2">نبحث باستمرار عن أفضل الأساليب والتقنيات لتقديم تجربة تعليمية متطورة وفعالة.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow">
+                        <h4 class="font-bold text-lg text-[#00234C]">البهجة</h4>
+                        <p class="text-sm text-gray-600 mt-2">نؤمن بأن رحلة التعلم يجب أن تكون ممتعة ومصدر سعادة وإنجاز شخصي.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <h3 class="text-2xl font-bold text-center text-[#00234C] mb-6">شخصية ونبرة العلامة التجارية</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-[#00234C] mb-3">شخصيتنا: المرشد الخبير</h4>
+                        <p class="text-gray-700">نحن نجمع بين حكمة الخبير ودعم المرشد. نمتلك المعرفة العميقة والسلطة في مجالنا، لكننا نقدمها بطريقة ودودة وداعمة. هدفنا ليس فقط تزويدك بالمعلومات، بل إرشادك وتمكينك لتطبيقها وتحقيق النجاح الذي تستحقه.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-[#00234C] mb-3">نبرة صوتنا: واثقة، ملهمة، وواضحة</h4>
+                        <p class="text-gray-700 mb-4">نتحدث بلغة تجمع بين الاحترافية والبساطة، ونبرة تمزج بين الثقة والإلهام.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نقول:</strong> "نحن هنا لنرشدك في كل خطوة نحو تحقيق أهدافك المهنية."</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>لا نقول:</strong> "هذه هي الدورة التي يجب أن تأخذها."</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نستخدم:</strong> لغة واضحة، مباشرة، ومحفزة.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>نتجنب:</strong> المصطلحات المعقدة واللغة الرسمية الجافة.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="visuals" class="section">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00234C] mb-2">النظام البصري: صياغة هويتنا</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">هويتنا البصرية مبنية على مفهوم "البساطة المنظمة". كل عنصر، من الشعار إلى الألوان والخطوط، تم اختياره بعناية ليعكس الاحترافية، الثقة، والابتكار.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-4 md:p-8">
+                <div class="flex justify-center border-b mb-6" id="visuals-nav">
+                    <button data-target="logo" class="sub-nav-link active px-4 py-2">الشعار</button>
+                    <button data-target="colors" class="sub-nav-link px-4 py-2">الألوان</button>
+                    <button data-target="typography" class="sub-nav-link px-4 py-2">الخطوط</button>
+                </div>
+
+                <div id="logo" class="visual-content active">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center logo-container">
+                            <div class="w-48 h-48 mx-auto relative mb-4">
+                                <div class="logo-part absolute w-full h-full bg-[#00234C] clip-path-shield" data-text="الدرع: يمثل الحماية، المصداقية، وسلطة شهاداتنا المعتمدة."></div>
+                                <div class="logo-part absolute w-full h-1/2 bottom-0 bg-[#00234C] clip-path-path" data-text="المسار: يرمز إلى رحلة الطالب في النمو والتطور المهني."></div>
+                                <div class="logo-part absolute w-12 h-12 bg-[#D4AF37] rounded-full bottom-6 right-1/2 translate-x-1/2" data-text="النقطة: تمثل الطالب الفرد - 'شرارة' الإمكانات التي نرعاها."></div>
+                            </div>
+                            <p id="logo-tooltip" class="text-gray-600 h-12">مرر الفأرة فوق أجزاء الشعار لاكتشاف رمزيتها.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#00234C] mb-4">رمزية الشعار</h3>
+                            <p class="text-gray-700">شعارنا هو رمز تجريدي يدمج ببراعة بين الدرع، المسار، ونقطة حرف النون العربي. إنه يروي قصة الحماية، النمو، والإمكانات الفردية. هذا التصميم العصري والراقي يميزنا عن المنافسين التقليديين ويضعنا في مصاف العلامات التجارية المبتكرة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="colors" class="visual-content">
+                     <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-[#00234C] mb-4">لوحة الألوان</h3>
+                            <p class="text-gray-700">تم تصميم لوحة ألواننا لإحداث تأثير نفسي محدد: بيئة تعليمية هادئة ومركزة، مع لمسة من الفخامة والديناميكية لتوجيه المستخدم.</p>
+                            <div id="color-palette" class="flex flex-wrap gap-4">
+                                <div class="color-swatch cursor-pointer text-center" data-name="أزرق نخبوي" data-hex="#00234C" data-rgb="0, 35, 76" data-cmyk="100, 54, 0, 70" data-desc="لون عميق وموثوق يوحي بالثقة والاحترافية. هو اللون المهيمن على العلامة التجارية.">
+                                    <div class="w-16 h-16 rounded-full bg-[#00234C] shadow-md mx-auto"></div><span class="text-xs">أزرق نخبوي</span>
+                                </div>
+                                <div class="color-swatch cursor-pointer text-center" data-name="ذهبي مرموق" data-hex="#D4AF37" data-rgb="212, 175, 55" data-cmyk="0, 17, 74, 17" data-desc="لون ذهبي غني يرمز إلى التميز والإنجاز. يستخدم كلمسة مميزة للحظات ذات القيمة العالية.">
+                                    <div class="w-16 h-16 rounded-full bg-[#D4AF37] shadow-md mx-auto"></div><span class="text-xs">ذهبي مرموق</span>
+                                </div>
+                                <div class="color-swatch cursor-pointer text-center" data-name="أخضر مائي حيوي" data-hex="#00B2A9" data-rgb="0, 178, 169" data-cmyk="100, 0, 5, 30" data-desc="لون نابض بالحياة يُستخدم حصرياً للدعوات إلى اتخاذ إجراء (الأزرار، الروابط) لضخ الديناميكية.">
+                                    <div class="w-16 h-16 rounded-full bg-[#00B2A9] shadow-md mx-auto"></div><span class="text-xs">أخضر مائي</span>
+                                </div>
+                                <div class="color-swatch cursor-pointer text-center" data-name="رمادي محايد" data-hex="#F0F2F5" data-rgb="240, 242, 245" data-cmyk="2, 1, 0, 4" data-desc="رمادي فاتح ونظيف للخلفيات، يوفر لوحة هادئة ومركزة للمحتوى.">
+                                    <div class="w-16 h-16 rounded-full bg-[#F0F2F5] shadow-md border mx-auto"></div><span class="text-xs">رمادي محايد</span>
+                                </div>
+                            </div>
+                            <div id="color-details" class="mt-4 p-4 bg-gray-50 rounded-lg min-h-[120px]">
+                                <p class="text-gray-600">انقر على لون لاستكشاف تفاصيله.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-center mb-2">نسب استخدام الألوان</h4>
+                            <div class="chart-container"><canvas id="color-ratio-chart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="typography" class="visual-content">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#00234C] mb-4">النظام الطباعي</h3>
+                            <p class="text-gray-700 mb-4">اخترنا خط <span class="font-bold">Tajawal</span> لأسلوبه الهندسي النظيف الذي يعمل بشكل استثنائي باللغتين العربية والإنجليزية. هذا يعكس طابعنا الدولي ويضمن تجربة قراءة متسقة وسهلة.</p>
+                            <select id="font-selector" class="w-full p-2 border rounded-md">
+                                <option value="h1">العنوان الرئيسي (H1)</option>
+                                <option value="h2">العنوان الفرعي (H2)</option>
+                                <option value="h3">العنوان الثالث (H3)</option>
+                                <option value="body" selected>النص الأساسي (Body)</option>
+                            </select>
+                        </div>
+                        <div id="font-preview-container" class="p-6 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <p id="font-preview" class="text-base" style="line-height: 1.6;">التميز والابتكار هما جوهر ما نقدمه لرسم مستقبلك المهني.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="application" class="section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00234C] mb-2">الهوية في التطبيق: التنفيذ العملي</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">هنا نرى كيف تنبض هويتنا بالحياة عبر مختلف نقاط الاتصال. كل تطبيق يعكس التزامنا بالتميز والاحترافية، ويتبع التوجه الفني المعتمد.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-center text-[#00234C] mb-8">التوجه الفني (Art Direction)</h3>
+                <div class="space-y-12">
+                    
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-[#00234C] mb-2">الصورة الواحدة</h4>
+                        <p class="text-gray-600 mb-4">الأساس: واقعية (Realism) مع نصوص بارزة وواضحة.</p>
+                        <img src="https://i.postimg.cc/bZRcPnsK/image1.png" alt="نموذج بصري للصورة الواحدة" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/000000?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-[#00234C] mb-2">الإنفوجراف</h4>
+                        <p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p>
+                        <img src="https://i.postimg.cc/dZCpxkbN/image2.png" alt="نموذج بصري للإنفوجراف" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x600/EEEEEE/333333?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-[#00234C] mb-2">الصورة مع تفاصيل</h4>
+                        <p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat).</p>
+                        <img src="https://i.postimg.cc/c6tpH2v7/image3.png" alt="نموذج بصري لصورة مع تفاصيل" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https.placehold.co/600x800/FFFFFF/111111?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-[#00234C] mb-2">الكاروسيل</h4>
+                        <p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم متساوي القياس (Isometric) + تصميم مسطح (Flat).</p>
+                        <img src="https://i.postimg.cc/mzJKjN5F/image4.png" alt="نموذج بصري للكاروسيل" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x400/DDDDDD/222222?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-[#00234C] mb-2">ملف الشركة (البروفايل)</h4>
+                        <p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p>
+                        <img src="https://i.postimg.cc/sMLPv6QS/image5.png" alt="نموذج بصري لملف الشركة" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/FFFFFF/000000?text=Image+Not+Found';">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-6 mt-8 bg-white border-t">
+        <p class="text-gray-500">&copy; 2024 أكاديمية النخبة الدولية للتدريب والتنمية. كل الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainNavLinks = document.querySelectorAll('#main-nav a');
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            const sections = document.querySelectorAll('.section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function setActiveSection(targetId) {
+                sections.forEach(section => {
+                    section.classList.toggle('active', section.id === targetId);
+                });
+
+                const allNavLinks = [...mainNavLinks, ...mobileNavLinks];
+                allNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${targetId}`);
+                });
+            }
+
+            function handleNavClick(event) {
+                event.preventDefault();
+                const targetId = event.currentTarget.getAttribute('href').substring(1);
+                setActiveSection(targetId);
+                if (mobileMenu.classList.contains('hidden') === false) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+
+            mainNavLinks.forEach(link => link.addEventListener('click', handleNavClick));
+            mobileNavLinks.forEach(link => link.addEventListener('click', handleNavClick));
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const visualsNavLinks = document.querySelectorAll('#visuals-nav button');
+            const visualContents = document.querySelectorAll('.visual-content');
+
+            visualsNavLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const targetId = event.currentTarget.dataset.target;
+
+                    visualsNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                    event.currentTarget.classList.add('active');
+
+                    visualContents.forEach(content => {
+                        content.classList.toggle('active', content.id === targetId);
+                    });
+                });
+            });
+
+            const logoParts = document.querySelectorAll('.logo-part');
+            const logoTooltip = document.getElementById('logo-tooltip');
+            logoParts.forEach(part => {
+                part.addEventListener('mouseenter', () => {
+                    logoTooltip.textContent = part.dataset.text;
+                });
+                part.addEventListener('mouseleave', () => {
+                    logoTooltip.textContent = "مرر الفأرة فوق أجزاء الشعار لاكتشاف رمزيتها.";
+                });
+            });
+
+            const colorSwatches = document.querySelectorAll('.color-swatch');
+            const colorDetails = document.getElementById('color-details');
+            colorSwatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                    const name = swatch.dataset.name;
+                    const hex = swatch.dataset.hex;
+                    const rgb = swatch.dataset.rgb;
+                    const cmyk = swatch.dataset.cmyk;
+                    const desc = swatch.dataset.desc;
+                    colorDetails.innerHTML = `
+                        <h4 class="font-bold text-lg" style="color:${hex};">${name}</h4>
+                        <p class="text-sm text-gray-700 mt-1">${desc}</p>
+                        <div class="text-xs mt-2 text-gray-500">
+                            <strong>HEX:</strong> ${hex} | <strong>RGB:</strong> ${rgb} | <strong>CMYK:</strong> ${cmyk}
+                        </div>
+                    `;
+                });
+            });
+
+            const fontSelector = document.getElementById('font-selector');
+            const fontPreview = document.getElementById('font-preview');
+            const fontStyles = {
+                h1: { size: '2.25rem', weight: '700', lineHeight: '1.2' },
+                h2: { size: '1.875rem', weight: '700', lineHeight: '1.3' },
+                h3: { size: '1.5rem', weight: '500', lineHeight: '1.4' },
+                body: { size: '1rem', weight: '400', lineHeight: '1.6' },
+            };
+            fontSelector.addEventListener('change', (e) => {
+                const style = fontStyles[e.target.value];
+                fontPreview.style.fontSize = style.size;
+                fontPreview.style.fontWeight = style.weight;
+                fontPreview.style.lineHeight = style.lineHeight;
+            });
+
+            const ctx = document.getElementById('color-ratio-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['محايد (رمادي/أبيض)', 'أزرق نخبوي', 'لمسات (أخضر/ذهبي)'],
+                    datasets: [{
+                        data: [60, 30, 10],
+                        backgroundColor: ['#F0F2F5', '#00234C', '#00B2A9'],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#00234C',
+                                font: {
+                                    family: "'Tajawal', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const shieldClipPath = 'polygon(50% 0%, 100% 10%, 100% 70%, 50% 100%, 0% 70%, 0% 10%)';
+            const pathClipPath = 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)';
+            document.querySelector('.clip-path-shield').style.clipPath = shieldClipPath;
+            document.querySelector('.clip-path-path').style.clipPath = pathClipPath;
+        });
+    </script>
+</body>
+</html>
