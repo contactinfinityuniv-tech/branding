@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الهوية التفاعلية لأكاديمية النخبة الدولية</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- CORRECTED PALETTE --- */
         :root {
             --pearl-white: #f7f4ee;
             --black: #000000;
@@ -38,7 +36,7 @@
             height: 2px;
             bottom: -4px;
             right: 0;
-            background-color: var(--dark-red); /* Using Dark Red as accent */
+            background-color: var(--dark-red);
             transition: width 0.3s;
         }
         .nav-link.active::after, .nav-link:hover::after {
@@ -112,23 +110,22 @@
     <main class="container mx-auto p-4 md:p-8">
         
         <section id="core" class="section active">
-            <!-- THIS SECTION REMAINS UNCHANGED -->
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[var(--navi-blue)] mb-2">الجوهر الاستراتيجي: هويتنا الأساسية</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">هنا يكمن أساس علامتنا التجارية. كل قرار، وكل تصميم، وكل كلمة تنبع من هذه الركائز الأساسية التي تحدد من نحن وماذا نسعى لتحقيقه.</p>
+                <p class="text-lg text-[var(--neutral-gray)] max-w-3xl mx-auto">هنا يكمن أساس علامتنا التجارية. كل قرار، وكل تصميم، وكل كلمة تنبع من هذه الركائز الأساسية التي تحدد من نحن وماذا نسعى لتحقيقه.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-md space-y-4"><h3 class="text-2xl font-bold text-[var(--navi-blue)]">غرضنا: لماذا نحن هنا؟</h3><p class="text-gray-700">نحن موجودون لنكون الركيزة الموثوقة التي يعتمد عليها عملاؤنا لبناء مستقبلهم المهني. نقدم لهم مساراً واضحاً نحو النجاح من خلال شهادات معتمدة في المملكة العربية السعودية، تفتح لهم أبواب الفرص وتمنحهم ميزة تنافسية حقيقية.</p></div>
-                <div class="bg-white p-8 rounded-xl shadow-md space-y-4"><h3 class="text-2xl font-bold text-[var(--navi-blue)]">رؤيتنا: المستقبل الذي نصنعه</h3><p class="text-gray-700">أن نكون المعهد الدولي الرائد والمعتمد في المملكة العربية السعودية، وأن نتوسع لنؤسس مقرات لنا في دولتين إلى ثلاث دول مستهدفة، لنصبح منارة التميز المهني في المنطقة والعالم.</p></div>
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4"><h3 class="text-2xl font-bold text-[var(--navi-blue)]">غرضنا: لماذا نحن هنا؟</h3><p class="text-[var(--neutral-gray)]">نحن موجودون لنكون الركيزة الموثوقة التي يعتمد عليها عملاؤنا لبناء مستقبلهم المهني. نقدم لهم مساراً واضحاً نحو النجاح من خلال شهادات معتمدة في المملكة العربية السعودية، تفتح لهم أبواب الفرص وتمنحهم ميزة تنافسية حقيقية.</p></div>
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4"><h3 class="text-2xl font-bold text-[var(--navi-blue)]">رؤيتنا: المستقبل الذي نصنعه</h3><p class="text-[var(--neutral-gray)]">أن نكون المعهد الدولي الرائد والمعتمد في المملكة العربية السعودية، وأن نتوسع لنؤسس مقرات لنا في دولتين إلى ثلاث دول مستهدفة، لنصبح منارة التميز المهني في المنطقة والعالم.</p></div>
             </div>
-            <div class="mb-12"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-8">قيمنا: المبادئ التي توجهنا</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">التميز</h4><p class="text-sm text-gray-600 mt-2">التزام مطلق بتقديم أعلى معايير الجودة في كل جانب من جوانب تجربتكم معنا.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">النزاهة والشفافية</h4><p class="text-sm text-gray-600 mt-2">نتعامل بوضوح ومصداقية تامة، لأن ثقتكم هي أساس نجاحنا.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">الخصوصية</h4><p class="text-sm text-gray-600 mt-2">نحترم ونحمي بياناتكم وخصوصيتكم بأعلى درجات الأمان والسرية.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">الابتكار</h4><p class="text-sm text-gray-600 mt-2">نبحث باستمرار عن أفضل الأساليب والتقنيات لتقديم تجربة تعليمية متطورة وفعالة.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">البهجة</h4><p class="text-sm text-gray-600 mt-2">نؤمن بأن رحلة التعلم يجب أن تكون ممتعة ومصدر سعادة وإنجاز شخصي.</p></div></div></div>
-            <div class="bg-white p-8 rounded-xl shadow-md"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-6">شخصية ونبرة العلامة التجارية</h3><div class="grid md:grid-cols-2 gap-8"><div><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-3">شخصيتنا: المرشد الخبير</h4><p class="text-gray-700">نحن نجمع بين حكمة الخبير ودعم المرشد. نمتلك المعرفة العميقة والسلطة في مجالنا، لكننا نقدمها بطريقة ودودة وداعمة. هدفنا ليس فقط تزويدك بالمعلومات، بل إرشادك وتمكينك لتطبيقها وتحقيق النجاح الذي تستحقه.</p></div><div><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-3">نبرة صوتنا: واثقة، ملهمة، وواضحة</h4><p class="text-gray-700 mb-4">نتحدث بلغة تجمع بين الاحترافية والبساطة، ونبرة تمزج بين الثقة والإلهام.</p><ul class="space-y-2 text-sm"><li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نقول:</strong> "نحن هنا لنرشدك في كل خطوة نحو تحقيق أهدافك المهنية."</li><li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>لا نقول:</strong> "هذه هي الدورة التي يجب أن تأخذها."</li><li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نستخدم:</strong> لغة واضحة، مباشرة، ومحفزة.</li><li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>نتجنب:</strong> المصطلحات المعقدة واللغة الرسمية الجافة.</li></ul></div></div></div>
+            <div class="mb-12"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-8">قيمنا: المبادئ التي توجهنا</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">التميز</h4><p class="text-sm text-[var(--neutral-gray)] mt-2">التزام مطلق بتقديم أعلى معايير الجودة في كل جانب من جوانب تجربتكم معنا.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">النزاهة والشفافية</h4><p class="text-sm text-[var(--neutral-gray)] mt-2">نتعامل بوضوح ومصداقية تامة، لأن ثقتكم هي أساس نجاحنا.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">الخصوصية</h4><p class="text-sm text-[var(--neutral-gray)] mt-2">نحترم ونحمي بياناتكم وخصوصيتكم بأعلى درجات الأمان والسرية.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">الابتكار</h4><p class="text-sm text-[var(--neutral-gray)] mt-2">نبحث باستمرار عن أفضل الأساليب والتقنيات لتقديم تجربة تعليمية متطورة وفعالة.</p></div><div class="bg-white p-6 rounded-lg text-center shadow-sm hover:shadow-xl transition-shadow"><h4 class="font-bold text-lg text-[var(--navi-blue)]">البهجة</h4><p class="text-sm text-[var(--neutral-gray)] mt-2">نؤمن بأن رحلة التعلم يجب أن تكون ممتعة ومصدر سعادة وإنجاز شخصي.</p></div></div></div>
+            <div class="bg-white p-8 rounded-xl shadow-md"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-6">شخصية ونبرة العلامة التجارية</h3><div class="grid md:grid-cols-2 gap-8"><div><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-3">شخصيتنا: المرشد الخبير</h4><p class="text-[var(--neutral-gray)]">نحن نجمع بين حكمة الخبير ودعم المرشد. نمتلك المعرفة العميقة والسلطة في مجالنا، لكننا نقدمها بطريقة ودودة وداعمة. هدفنا ليس فقط تزويدك بالمعلومات، بل إرشادك وتمكينك لتطبيقها وتحقيق النجاح الذي تستحقه.</p></div><div><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-3">نبرة صوتنا: واثقة، ملهمة، وواضحة</h4><p class="text-[var(--neutral-gray)] mb-4">نتحدث بلغة تجمع بين الاحترافية والبساطة، ونبرة تمزج بين الثقة والإلهام.</p><ul class="space-y-2 text-sm"><li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نقول:</strong> "نحن هنا لنرشدك في كل خطوة نحو تحقيق أهدافك المهنية."</li><li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>لا نقول:</strong> "هذه هي الدورة التي يجب أن تأخذها."</li><li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>نستخدم:</strong> لغة واضحة، مباشرة، ومحفزة.</li><li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <strong>نتجنب:</strong> المصطلحات المعقدة واللغة الرسمية الجافة.</li></ul></div></div></div>
         </section>
 
         <section id="visuals" class="section">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-[var(--navi-blue)] mb-2">النظام البصري: صياغة هويتنا</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">هويتنا البصرية مبنية على مفهوم "البساطة المنظمة". كل عنصر، من الشعار إلى الألوان والخطوط، تم اختياره بعناية ليعكس الاحترافية، الثقة، والابتكار.</p>
+                <p class="text-lg text-[var(--neutral-gray)] max-w-3xl mx-auto">هويتنا البصرية مبنية على مفهوم "البساطة المنظمة". كل عنصر، من الشعار إلى الألوان والخطوط، تم اختياره بعناية ليعكس الاحترافية، الثقة، والابتكار.</p>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg p-4 md:p-8">
@@ -139,14 +136,13 @@
                 </div>
 
                 <div id="logo" class="visual-content active">
-                    <!-- LOGO SECTION REMAINS UNCHANGED -->
-                    <div class="grid md:grid-cols-2 gap-8 items-center"><div class="text-center"><img src="https://i.ibb.co/tZ5w0K3/removal-ai-1f0df49e-b0a9-44b2-b02d-bc01e97504fa-logo.png" alt="شعار أكاديمية النخبة الدولية" class="rounded-lg shadow-md mx-auto"></div><div><h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4">رمزية الشعار</h3><p class="text-gray-700">هنا يتم وضع شرح لرمزية الشعار وأجزائه المختلفة. التصميم العصري والراقي يميزنا عن المنافسين التقليديين ويضعنا في مصاف العلامات التجارية المبتكرة.</p></div></div>
+                    <div class="grid md:grid-cols-2 gap-8 items-center"><div class="text-center"><img src="https://i.ibb.co/tZ5w0K3/removal-ai-1f0df49e-b0a9-44b2-b02d-bc01e97504fa-logo.png" alt="شعار أكاديمية النخبة الدولية" class="rounded-lg shadow-md mx-auto"></div><div><h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4">رمزية الشعار</h3><p class="text-[var(--neutral-gray)]">هنا يتم وضع شرح لرمزية الشعار وأجزائه المختلفة. التصميم العصري والراقي يميزنا عن المنافسين التقليديين ويضعنا في مصاف العلامات التجارية المبتكرة.</p></div></div>
                 </div>
 
                 <div id="colors" class="visual-content">
                      <div class="space-y-4">
                          <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4">لوحة الألوان التفاعلية</h3>
-                         <p class="text-gray-700">تم اختيار لوحة ألواننا لتعكس شخصية "المرشد الخبير" بدقة: هي لوحة تجمع بين السلطة المعرفية والثقة، مع لمسة من الإلهام والشغف.</p>
+                         <p class="text-[var(--neutral-gray)]">تم اختيار لوحة ألواننا لتعكس شخصية "المرشد الخبير" بدقة: هي لوحة تجمع بين السلطة المعرفية والثقة، مع لمسة من الإلهام والشغف.</p>
                          <div id="color-palette" class="flex flex-wrap justify-center gap-4">
                              <!-- Swatches will be injected by JS -->
                          </div>
@@ -157,64 +153,60 @@
                 </div>
 
                 <div id="typography" class="visual-content">
-                    <!-- TYPOGRAPHY SECTION REMAINS UNCHANGED -->
-                    <div class="grid md:grid-cols-2 gap-8 items-center"><div><h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4">النظام الطباعي</h3><p class="text-gray-700 mb-4">اخترنا خط <span class="font-bold">Tajawal</span> لأسلوبه الهندسي النظيف الذي يعمل بشكل استثنائي باللغتين العربية والإنجليزية. هذا يعكس طابعنا الدولي ويضمن تجربة قراءة متسقة وسهلة.</p><select id="font-selector" class="w-full p-2 border rounded-md"><option value="h1">العنوان الرئيسي (H1)</option><option value="h2">العنوان الفرعي (H2)</option><option value="h3">العنوان الثالث (H3)</option><option value="body" selected>النص الأساسي (Body)</option></select></div><div id="font-preview-container" class="p-6 bg-gray-50 rounded-lg flex items-center justify-center"><p id="font-preview" class="text-base" style="line-height: 1.6;">التميز والابتكار هما جوهر ما نقدمه لرسم مستقبلك المهني.</p></div></div>
+                    <div class="grid md:grid-cols-2 gap-8 items-center"><div><h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4">النظام الطباعي</h3><p class="text-[var(--neutral-gray)] mb-4">اخترنا خط <span class="font-bold">Tajawal</span> لأسلوبه الهندسي النظيف الذي يعمل بشكل استثنائي باللغتين العربية والإنجليزية. هذا يعكس طابعنا الدولي ويضمن تجربة قراءة متسقة وسهلة.</p><select id="font-selector" class="w-full p-2 border rounded-md"><option value="h1">العنوان الرئيسي (H1)</option><option value="h2">العنوان الفرعي (H2)</option><option value="h3">العنوان الثالث (H3)</option><option value="body" selected>النص الأساسي (Body)</option></select></div><div id="font-preview-container" class="p-6 bg-gray-50 rounded-lg flex items-center justify-center"><p id="font-preview" class="text-base" style="line-height: 1.6;">التميز والابتكار هما جوهر ما نقدمه لرسم مستقبلك المهني.</p></div></div>
                 </div>
+
+                <!-- Harmony Guide is now part of the Visuals section -->
+                <div id="harmony-guide" class="mt-12 pt-8 border-t">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-extrabold text-[var(--navi-blue)] mb-2">دليل تناسق الألوان مع الهوية</h2>
+                        <p class="text-lg text-[var(--neutral-gray)] max-w-3xl mx-auto">الأدلة والأمثلة العملية التي تثبت كيف تعمل لوحة الألوان كوحدة متكاملة لخدمة علامتك التجارية.</p>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-10 items-center">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-3">الدليل الأول: التناغم النفسي</h3>
+                                <p class="text-[var(--neutral-gray)] leading-relaxed">اللوحة تجمع بين **الثقة والسلطة المعرفية** (الكحلي والأسود) مع **الشغف والتحفيز** (الأحمر الداكن). هذا المزيج يبني شخصية "المرشد الخبير" المتكاملة: هو خبير موثوق (الكحلي) يقدم معرفته بسلطة وثقة (الأسود)، وفي نفس الوقت هو مرشد ملهم (الأحمر الداكن) يدفعك لتحقيق النجاح.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-3">الدليل الثاني: التوازن البصري (قاعدة 60-30-10)</h3>
+                                <p class="text-[var(--neutral-gray)] leading-relaxed">تطبيق هذه القاعدة يضمن تصميمًا احترافيًا ومتوازنًا:<br>
+                                    <span class="font-bold">• 60% (الأبيض اللؤلؤي):</span> يوفر خلفية هادئة ونظيفة تعكس الشفافية وتبرز المحتوى.<br>
+                                    <span class="font-bold">• 30% (الكحلي والرمادي):</span> يستخدم للعناوين والأقسام الرئيسية لبناء هيكل بصري قوي وموثوق.<br>
+                                    <span class="font-bold">• 10% (الأحمر الداكن):</span> يستخدم كلمسة استراتيجية للأزرار الهامة ولفت الانتباه وتحفيز المستخدم.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4 text-center">مثال عملي: منشور إعلاني</h3>
+                            <div class="rounded-xl shadow-2xl w-full max-w-md mx-auto transform transition-transform hover:scale-105 overflow-hidden" style="background-color: var(--pearl-white);">
+                                <div class="bg-[var(--navi-blue)] text-white p-6 text-center rounded-t-xl">
+                                    <h4 class="text-2xl font-extrabold">ابدأ رحلتك نحو التميز</h4>
+                                    <p class="opacity-80 mt-1">انضم إلى دورتنا التدريبية الجديدة</p>
+                                </div>
+                                <div class="p-6">
+                                   <p class="text-center text-[var(--neutral-gray)] mb-4">"نحن هنا لنرشدك في كل خطوة نحو تحقيق أهدافك المهنية."</p>
+                                   <button class="w-full text-white font-bold py-3 px-4 rounded-lg transition-transform hover:scale-105" style="background-color: var(--dark-red);">سجل الآن</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <section id="application" class="section">
-            <!-- APPLICATION SECTION REMAINS UNCHANGED -->
-            <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-[var(--navi-blue)] mb-2">الهوية في التطبيق: التنفيذ العملي</h2><p class="text-lg text-gray-600 max-w-3xl mx-auto">هنا نرى كيف تنبض هويتنا بالحياة عبر مختلف نقاط الاتصال. كل تطبيق يعكس التزامنا بالتميز والاحترافية، ويتبع التوجه الفني المعتمد.</p></div><div class="bg-white p-8 rounded-xl shadow-lg"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-8">التوجه الفني (Art Direction)</h3><div class="space-y-12"><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الصورة الواحدة</h4><p class="text-gray-600 mb-4">الأساس: واقعية (Realism) مع نصوص بارزة وواضحة.</p><img src="https://i.ibb.co/L6V2Xk3/1-26a8fe84.jpg" alt="نموذج بصري للصورة الواحدة" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/000000?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الإنفوجراف</h4><p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p><img src="https://i.ibb.co/gZ7w0v5/2-26a8fe84.jpg" alt="نموذج بصري للإنفوجراف" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x600/EEEEEE/333333?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الصورة مع تفاصيل</h4><p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat).</p><img src="https://i.ibb.co/D9dY0G9/3-26a8fe84.jpg" alt="نموذج بصري لصورة مع تفاصيل" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/111111?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الكاروسيل</h4><p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم متساوي القياس (Isometric) + تصميم مسطح (Flat).</p><img src="https://i.ibb.co/vLNz0fL/4-26a8fe84.jpg" alt="نموذج بصري للكاروسيل" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x400/DDDDDD/222222?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">ملف الشركة (البروفايل)</h4><p class="text-gray-600 mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p><img src="https://i.ibb.co/bFkQ5b5/1-f870ad16.jpg" alt="نموذج بصري لملف الشركة" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/FFFFFF/000000?text=Image+Not+Found';"></div></div></div>
-        </section>
-
-        <!-- NEW SECTION: HARMONY GUIDE -->
-        <section id="harmony" class="section bg-white rounded-2xl shadow-xl p-8 md:p-12 mt-12">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--navi-blue)] mb-2">دليل تناسق الألوان مع الهوية</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">الأدلة والأمثلة العملية التي تثبت كيف تعمل لوحة الألوان كوحدة متكاملة لخدمة علامتك التجارية.</p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <!-- Left Column: Analysis -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-3">الدليل الأول: التناغم النفسي</h3>
-                        <p class="text-gray-700 leading-relaxed">اللوحة تجمع بين **الثقة والسلطة المعرفية** (الكحلي والأسود) مع **الشغف والتحفيز** (الأحمر الداكن). هذا المزيج يبني شخصية "المرشد الخبير" المتكاملة: هو خبير موثوق (الكحلي) يقدم معرفته بسلطة وثقة (الأسود)، وفي نفس الوقت هو مرشد ملهم (الأحمر الداكن) يدفعك لتحقيق النجاح.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-3">الدليل الثاني: التوازن البصري (قاعدة 60-30-10)</h3>
-                        <p class="text-gray-700 leading-relaxed">تطبيق هذه القاعدة يضمن تصميمًا احترافيًا ومتوازنًا:<br>
-                            <span class="font-bold">• 60% (الأبيض اللؤلؤي):</span> يوفر خلفية هادئة ونظيفة تعكس الشفافية وتبرز المحتوى.<br>
-                            <span class="font-bold">• 30% (الكحلي والرمادي):</span> يستخدم للعناوين والأقسام الرئيسية لبناء هيكل بصري قوي وموثوق.<br>
-                            <span class="font-bold">• 10% (الأحمر الداكن):</span> يستخدم كلمسة استراتيجية للأزرار الهامة ولفت الانتباه وتحفيز المستخدم.</p>
-                    </div>
-                </div>
-                <!-- Right Column: Practical Example -->
-                <div>
-                    <h3 class="text-2xl font-bold text-[var(--navi-blue)] mb-4 text-center">مثال عملي: منشور إعلاني</h3>
-                    <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-auto transform transition-transform hover:scale-105 overflow-hidden">
-                        <div class="bg-[var(--navi-blue)] text-white p-6 text-center">
-                            <h4 class="text-2xl font-extrabold">ابدأ رحلتك نحو التميز</h4>
-                            <p class="opacity-80 mt-1">انضم إلى دورتنا التدريبية الجديدة</p>
-                        </div>
-                        <div class="p-6">
-                           <p class="text-center text-[var(--neutral-gray)] mb-4">"نحن هنا لنرشدك في كل خطوة نحو تحقيق أهدافك المهنية."</p>
-                           <button class="w-full text-white font-bold py-3 px-4 rounded-lg transition-transform hover:scale-105" style="background-color: var(--dark-red);">سجل الآن</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-[var(--navi-blue)] mb-2">الهوية في التطبيق: التنفيذ العملي</h2><p class="text-lg text-[var(--neutral-gray)] max-w-3xl mx-auto">هنا نرى كيف تنبض هويتنا بالحياة عبر مختلف نقاط الاتصال. كل تطبيق يعكس التزامنا بالتميز والاحترافية، ويتبع التوجه الفني المعتمد.</p></div><div class="bg-white p-8 rounded-xl shadow-lg"><h3 class="text-2xl font-bold text-center text-[var(--navi-blue)] mb-8">التوجه الفني (Art Direction)</h3><div class="space-y-12"><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الصورة الواحدة</h4><p class="text-[var(--neutral-gray)] mb-4">الأساس: واقعية (Realism) مع نصوص بارزة وواضحة.</p><img src="https://i.ibb.co/L6V2Xk3/1-26a8fe84.jpg" alt="نموذج بصري للصورة الواحدة" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/000000?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الإنفوجراف</h4><p class="text-[var(--neutral-gray)] mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p><img src="https://i.ibb.co/gZ7w0v5/2-26a8fe84.jpg" alt="نموذج بصري للإنفوجراف" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x600/EEEEEE/333333?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الصورة مع تفاصيل</h4><p class="text-[var(--neutral-gray)] mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat).</p><img src="https://i.ibb.co/D9dY0G9/3-26a8fe84.jpg" alt="نموذج بصري لصورة مع تفاصيل" class="rounded-lg shadow-md mx-auto max-w-sm w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x800/FFFFFF/111111?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">الكاروسيل</h4><p class="text-[var(--neutral-gray)] mb-4">المزيج: واقعية (Realism) + تصميم متساوي القياس (Isometric) + تصميم مسطح (Flat).</p><img src="https://i.ibb.co/vLNz0fL/4-26a8fe84.jpg" alt="نموذج بصري للكاروسيل" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x400/DDDDDD/222222?text=Image+Not+Found';"></div><div class="text-center"><h4 class="text-xl font-bold text-[var(--navi-blue)] mb-2">ملف الشركة (البروفايل)</h4><p class="text-[var(--neutral-gray)] mb-4">المزيج: واقعية (Realism) + تصميم مسطح (Flat) + تصميم متساوي القياس (Isometric).</p><img src="https://i.ibb.co/bFkQ5b5/1-f870ad16.jpg" alt="نموذج بصري لملف الشركة" class="rounded-lg shadow-md mx-auto max-w-3xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/FFFFFF/000000?text=Image+Not+Found';"></div></div></div>
         </section>
 
     </main>
     
     <footer class="text-center py-6 mt-8 bg-white border-t">
-        <p class="text-gray-500">&copy; 2024 أكاديمية النخبة الدولية للتدريب والتنمية. كل الحقوق محفوظة.</p>
+        <p class="text-[var(--neutral-gray)]">&copy; 2024 أكاديمية النخبة الدولية للتدريب والتنمية. كل الحقوق محفوظة.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- CORRECTED COLOR DATA ---
             const colorData = [
                 {
                     name: 'Pearl White', hex: '#f7f4ee',
@@ -253,14 +245,10 @@
             const sections = document.querySelectorAll('.section');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const allSections = [...sections, document.getElementById('harmony')];
 
             function setActiveSection(targetId) {
-                document.getElementById('harmony').style.display = 'block';
-                allSections.forEach(section => {
-                    if (section.id !== 'harmony') {
-                       section.classList.toggle('active', section.id === targetId);
-                    }
+                sections.forEach(section => {
+                    section.classList.toggle('active', section.id === targetId);
                 });
                 [...mainNavLinks, ...mobileNavLinks].forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${targetId}`);
@@ -308,7 +296,7 @@
                 colorData.forEach(color => {
                     const swatchHTML = `
                         <div class="color-swatch cursor-pointer text-center" title="${color.name}">
-                            <div class="w-16 h-16 rounded-full shadow-md mx-auto border-2 border-white" style="background-color: ${color.hex};"></div>
+                            <div class="w-16 h-16 rounded-full shadow-md mx-auto border-2 ${color.hex === '#f7f4ee' ? 'border-gray-300' : 'border-white'}" style="background-color: ${color.hex};"></div>
                             <span class="text-xs mt-1 inline-block">${color.name}</span>
                         </div>
                     `;
@@ -319,17 +307,17 @@
                             <div class="flex flex-col md:flex-row items-center gap-4">
                                 <div class="w-20 h-20 rounded-full flex-shrink-0 shadow-lg border-4 border-white" style="background-color: ${color.hex};"></div>
                                 <div class="flex-grow text-center md:text-right">
-                                    <h4 class="text-xl font-extrabold" style="color:${color.hex};">${color.name}</h4>
+                                    <h4 class="text-xl font-extrabold" style="color:${color.hex === '#f7f4ee' ? '#000000' : color.hex};">${color.name}</h4>
                                     <div class="inline-flex items-center bg-gray-200 rounded-full p-1 my-2 relative hex-code" title="اضغط للنسخ">
                                         <p class="font-mono text-sm px-3">${color.hex}</p>
                                         <span class="copied-feedback absolute -top-8 right-1/2 translate-x-1/2 bg-black text-white text-xs rounded py-1 px-2">تم النسخ!</span>
                                     </div>
-                                    <p class="text-sm text-gray-700 mt-1">${color.description}</p>
+                                    <p class="text-sm text-[var(--neutral-gray)] mt-1">${color.description}</p>
                                 </div>
                             </div>
                             <div class="bg-white mt-4 p-3 rounded-lg border-r-4" style="border-color: ${color.hex};">
                                 <h5 class="font-bold text-sm mb-1">دليل التناغم مع الهوية:</h5>
-                                <p class="leading-relaxed text-gray-600 text-sm">${color.evidence}</p>
+                                <p class="leading-relaxed text-[var(--neutral-gray)] text-sm">${color.evidence}</p>
                             </div>
                         `;
                         colorDetails.querySelector('.hex-code').addEventListener('click', (e) => copyToClipboard(color.hex, e.currentTarget));
